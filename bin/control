@@ -1,0 +1,49 @@
+#!/bin/bash -e
+
+ZABBIX_PID_FILE=$OPENSHIFT_ZABBIX_DIR/pid/zabbix.pid
+name="zabbix"
+
+#
+#  main():
+#
+
+# Ensure arguments.
+if ! [ $# -gt 0 ]; then
+    echo "Usage: $0 [start|restart|graceful|graceful-stop|stop|status|update|use-source]"
+    exit 1
+fi
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+function start() {
+}
+
+function stop() {
+}
+
+function configtest() {
+}
+
+function status() {
+}
+
+function tidy() {
+}
+
+function build() {
+}
+
+case "$1" in
+  start)           echo "Starting Zabbix agent cartridge"; start  ;;
+  stop)            echo "Stopping Zabbix agent cartridge";   stop ;;
+  restart)         echo "Restarting Zabbix agent cartridge"; restart ;;
+  reload|graceful) echo "Reloading Zabbix agent cartridge";  reload ;;
+  status)          status ;;
+  configtest)      configtest ;;
+  tidy)            tidy ;;
+  build)           build ;;
+  deploy)          exit 0 ;; 
+  *)               exit 0
+esac
+
+exit $?
