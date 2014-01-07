@@ -16,21 +16,27 @@ fi
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 function start() {
+  return
 }
 
 function stop() {
+  return
 }
 
 function configtest() {
+  return
 }
 
 function status() {
+  return
 }
 
 function tidy() {
+  return
 }
 
 function build() {
+  return
 }
 
 case "$1" in
