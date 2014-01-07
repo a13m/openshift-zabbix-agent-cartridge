@@ -13,6 +13,10 @@ GroupOverrides:
   - components:
     - web_framework
     - zabbix_agent
+Subscribes:
+  set-env:
+    Type: ENV:*
+    Required: false
 Scaling:
   Min: 1
   Max: -1
