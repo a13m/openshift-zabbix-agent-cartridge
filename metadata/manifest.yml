@@ -1,0 +1,18 @@
+Name: zabbix-agent
+Cartridge-Short-Name: zabbix_agent
+Display-Name: Zabbix Agent
+Version: "2.0.8"
+Website: https://github.com/a13m/openshift-zabbix-agent-cartridge
+Cartridge-Version: 0.0.1
+Cartridge-Vendor: a13m
+Categories:
+  - embedded
+Provides:
+  - zabbix_agent
+GroupOverrides:
+  - components:
+    - web_framework
+    - zabbix_agent
+Scaling:
+  Min: 1
+  Max: -1

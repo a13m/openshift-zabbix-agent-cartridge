@@ -1,0 +1,18 @@
+---
+locked_files:
+- bin/
+- bin/*
+- conf/
+- conf/*
+- configuration/
+- configuration/etc/
+- configuration/etc/conf/
+- configuration/etc/conf/*
+- metadata/
+- metadata/*
+- env/
+- env/*
+- hooks/
+- hooks/*
+processed_templates:
+- '**/*.erb'
