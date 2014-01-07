@@ -5,5 +5,5 @@ case "$1" in
     version="$2"
 esac
 
-echo "$version" > "$OPENSHIFT_ZABBIX_DIR/env/OPENSHIFT_ZABBIX_VERSION"
+echo "$version" > "$OPENSHIFT_ZABBIX_AGENT_DIR/env/OPENSHIFT_ZABBIX_AGENT_VERSION"
 

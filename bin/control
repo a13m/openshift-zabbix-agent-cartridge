@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-ZABBIX_PID_FILE=$OPENSHIFT_ZABBIX_DIR/pid/zabbix.pid
+ZABBIX_AGENT_PID_FILE=$OPENSHIFT_ZABBIX_AGENT_DIR/pid/zabbix.pid
 name="zabbix"
 
 #
