@@ -64,8 +64,8 @@ end
 
 def get_ulimit_data
   data = Hash.new()
-  data['ulimit.nofile'] = %x[ lsof ].lines.collect.length()
-  data['ulimit.nproc'] = %x[ ps -eL ].lines.collect.length()
+  data['ulimit.nofile'] = %x[ lsof ].lines.to_a.length()
+  data['ulimit.nproc'] = %x[ ps -eL ].lines.to_a.length()
   return data
 end
 
@@ -84,7 +84,7 @@ def send_data(entries, verbose = true)
   # Create a temporary file for this class (where the data is stored)
   tmpfile = Tempfile.new('zabbix-sender-tmp-', "#{ZABBIX_RUN_DIR}/")
   entries.each do |k,v|
-    line = ENV['OPENSHIFT_GEAR_DNS'] + " cgroup.#{k} #{v}\n"
+    line = ENV['OPENSHIFT_GEAR_DNS'] + " #{k} #{v}\n"
 
     puts line if verbose
     tmpfile << line
@@ -110,14 +110,15 @@ json_data = get_cgroup_data
 # puts JSON.dump(get_cgroup_data)
 entries = Hash.new()
 json_data.each do |k,v|
+  next if k.start_with?('memory.stat.total_')
   unless k.end_with?('.stat')
-    puts "#{k} = #{v}"
-    entries[k] = v
+    puts "cgroup.#{k} = #{v}"
+    entries["cgroup.#{k}"] = v
     next
   end
   v.each do |sk, sv|
-    puts "#{k}.#{sk} = #{sv}"
-    entries["#{k}.#{sk}"] = sv
+    puts "cgroup.#{k}.#{sk} = #{sv}"
+    entries["cgroup.#{k}.#{sk}"] = sv
   end
 end
 entries.merge!(get_quota_data)
