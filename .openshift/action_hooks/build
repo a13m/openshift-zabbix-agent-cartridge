@@ -20,4 +20,5 @@ popd
 popd
 rm -rf $BUILDROOT
 
-
+# Use .rb extension in source tree to make syntax highlighting happen
+mv usr/bin/send-zabbix-data.rb usr/bin/send-zabbix-data
