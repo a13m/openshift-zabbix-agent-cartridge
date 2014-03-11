@@ -10,5 +10,6 @@ shopt -s dotglob
 
 mkdir -p $OPENSHIFT_ZABBIX_AGENT_DIR/configuration/etc/
 mkdir $OPENSHIFT_ZABBIX_AGENT_DIR/run
+mkdir $OPENSHIFT_ZABBIX_AGENT_DIR/log
 # cp -Hr $OPENSHIFT_ZABBIX_AGENT_DIR/versions/shared/configuration/etc/* $OPENSHIFT_ZABBIX_AGENT_DIR/configuration/etc/
 
