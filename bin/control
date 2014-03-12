@@ -16,10 +16,14 @@ fi
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 function start() {
+  if [ -n "$OPENSHIFT_ZABBIX_AGENT_INTERVAL" ]; then
+    ( $OPENSHIFT_ZABBIX_AGENT_DIR/usr/bin/send-zabbix-data -i $OPENSHIFT_ZABBIX_AGENT_INTERVAL </dev/null >/dev/null 2>&1 &) &
+  fi
   return
 }
 
 function stop() {
+  killall send-zabbix-dat
   return
 }
 
